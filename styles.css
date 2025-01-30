@@ -1,3 +1,15 @@
+:root {
+    /* github color palette */
+    --header-bg-color: rgba(1,4,9,255);
+    --main-bg-color: rgba(13,17,23,255);
+    --font-color: rgb(240, 246, 252);
+    --border-color: rgba(61,68,77,255);
+    --main-secondary-color: rgba(21,27,35,255);
+    --border-setup: 1px solid rgba(61,68,77,255);
+    --border-radius: 6px;
+    --green-button: rgba(35,134,54,255);
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -6,6 +18,7 @@
 
 html {
     font-size: 16px;
+    color: var(--font-color);
 }
 
 body {
@@ -14,14 +27,63 @@ body {
 
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 20% 80%;
+    grid-template-rows: 10% 90%;
 }
 
 header {
-    background-color: red;
+    background-color: var(--header-bg-color);
 }
 
 main {
-    background-color: green;
+    background-color: var(--main-bg-color);
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-items: center;
+
+    section {
+        width: 80%;
+        height: 95%;
+        padding: 1rem;
+        background-color: var(--main-bg-color);
+
+        display: grid;
+        gap: 1rem;
+        grid-template-rows: 5fr 1fr;
+
+        div {
+            background-color: var(--main-bg-color);
+            border: var(--border-setup);
+        }
+
+        #book-list-container {
+            background-color: var(--main-bg-color-color);
+
+            .book-container {
+                width: 100%;
+                height: 20%;
+                background-color: var(--main-bg-color);
+
+            }
+        }
+
+        #button-container {
+            display: grid;
+            place-items: center;
+            border: none;
+
+            button {
+                width: 50%;
+                height: 100%;
+                font-size: 2rem;
+                background-color: var(--green-button);
+                border: var(--border-setup);
+                color: var(--font-color);
+                border-radius: var(--border-radius);
+            }
+        }
+
+    }
 }
 
