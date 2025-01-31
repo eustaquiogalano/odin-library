@@ -43,7 +43,7 @@ main {
     place-items: center;
 
     section {
-        width: 80%;
+        width: 60%;
         height: 95%;
         padding: 1rem;
         background-color: var(--main-bg-color);
@@ -53,8 +53,8 @@ main {
         grid-template-rows: 5fr 1fr;
 
         div {
+            /* all divs inside this section should have this background-color  */
             background-color: var(--main-bg-color);
-            border: var(--border-setup);
         }
 
         #book-list-container {
@@ -64,7 +64,20 @@ main {
                 width: 100%;
                 height: 20%;
                 background-color: var(--main-bg-color);
+                border: var(--border-setup);
+                padding: 1rem 2rem;
 
+                display: grid;
+                align-items: center;
+                align-content: center;
+
+                h3 {
+                    font-size: 2rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
             }
         }
 
