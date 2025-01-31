@@ -47,14 +47,43 @@ body {
 
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 1fr 6fr;
+    grid-template-areas: 
+        "header"
+        "main";
 }
 
 header {
+    grid-area: header;
     background-color: var(--header-bg-color);
+    padding: 1rem;
+
+    section {
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+          
+
+        h1 {
+            font-family: var(--rubik-black-setup);
+            font-size: 3rem;
+            align-self: end;
+        }
+    
+        p {
+            font-size: 1rem;
+            align-self: start;
+        }
+    }
+
+   
 }
 
 main {
+    grid-area: main;
     background-color: var(--main-bg-color);
     width: 100%;
     height: 100%;
