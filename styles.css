@@ -168,7 +168,7 @@ main {
                         width: 40%;
                         border-radius: 30px;
                         border: var(--border-setup);
-                        transition: background-color .5s;
+                        transition: all .5s;
                     }
 
                     #toggle-label:before {
@@ -180,11 +180,16 @@ main {
                         width: 40%;
                         border-radius: 50%;
                         background-color: white;
+                        transition: all .5s;
                     }
 
                     #read-toggle:checked + #toggle-label {
                         background-color: var(--green-button);
                     } 
+
+                    #read-toggle:checked + #toggle-label::before {
+                        transform: translateX(60px);
+                    }
                 }
 
 
