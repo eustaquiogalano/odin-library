@@ -166,9 +166,9 @@ main {
                         left: 0px;
                         height: 70%;
                         width: 40%;
-                        background-color: var(--border-setup);
                         border-radius: 30px;
                         border: var(--border-setup);
+                        transition: background-color .5s;
                     }
 
                     #toggle-label:before {
@@ -182,7 +182,9 @@ main {
                         background-color: white;
                     }
 
-                    
+                    #read-toggle:checked + #toggle-label {
+                        background-color: var(--green-button);
+                    } 
                 }
 
 
