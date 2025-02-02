@@ -91,6 +91,22 @@ main {
     flex-direction: column;
     align-items: center;
 
+    #add-book-modal {
+        position: absolute;
+        top: 33%;
+        left: 37%;
+
+        height: 500px;
+        width: 500px;
+        padding: 2rem;
+
+        border: var(--border-setup);
+        border-radius: 6px;
+        background-color: var(--main-bg-color);
+        color: var(--font-color);
+        font-family: var(--rubik-regular-setup);
+    }
+
     #book-section {
         width: 60%;
         height: 85%;
