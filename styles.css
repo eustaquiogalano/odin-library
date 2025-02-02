@@ -224,6 +224,12 @@ main {
                 color: var(--font-color);
                 border-radius: var(--border-radius);
                 font-family: var(--rubik-black-setup);
+                cursor: pointer;
+                transition: transform .5s;
+            }
+
+            #add-book:hover {
+                transform: scale(1.05);
             }
         }
 
