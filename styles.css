@@ -91,7 +91,6 @@ main {
     flex-direction: column;
     align-items: center;
 
-
     #book-section {
         width: 60%;
         height: 85%;
@@ -100,7 +99,8 @@ main {
         overflow: auto;
         display: flex;
         flex-direction: column;
-      
+        scrollbar-color: gray transparent;
+        
         div {
             /* all divs inside this section should have this background-color  */
             background-color: var(--main-bg-color);
@@ -156,11 +156,11 @@ main {
                     justify-content: center;
                     align-items: center;
 
-                    #read-toggle {
+                    input[type="checkbox"] {
                         display: none;  
                     }
 
-                    #toggle-label {
+                    label{
                         display: block;
                         position: relative;
                         cursor: pointer;
@@ -173,7 +173,7 @@ main {
                         transition: all .5s;
                     }
 
-                    #toggle-label:before {
+                    label:before {
                         content: '';
                         position: absolute;
                         top: 5px;
@@ -185,11 +185,11 @@ main {
                         transition: all .5s;
                     }
 
-                    #read-toggle:checked + #toggle-label {
+                    input[type="checkbox"]:checked + .js-manipulation {
                         background-color: var(--green-button);
                     } 
 
-                    #read-toggle:checked + #toggle-label::before {
+                    input[type="checkbox"]:checked + .js-manipulation::before {
                         transform: translateX(50px);
                     }
                 }
