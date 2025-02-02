@@ -14,6 +14,23 @@
         </section>
     </header>
     <main>
+        <dialog id="add-book-modal">
+            <form action="">
+                <h5>Book details</h5>
+                <div>
+                    <label for="">Title:</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label for="">Author:</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label for="">No. of pages:</label>
+                </div>
+                <button>Add to list</button>
+            </form>
+        </dialog>
         <section id="book-section">
             <div class="book-list-container">
                 <div class="book-container">
@@ -26,7 +43,7 @@
                 </div>
                 <div class="read-toggle-container">
                     <div id="toggle">
-                        <input type="checkbox" id="AtomicHabits" >
+                        <input type="checkbox" id="AtomicHabits">
                         <label for="AtomicHabits" class="js-manipulation"></label>
                     </div>
                 </div>
@@ -50,7 +67,7 @@
         </section>
         <section id="button-section">
             <div id="button-container">
-                <button>Add book</button>
+                <button id="add-book">Add book</button>
             </div>
         </section>
     </main>
