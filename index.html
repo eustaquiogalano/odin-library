@@ -15,18 +15,19 @@
     </header>
     <main>
         <dialog id="add-book-modal">
-            <form action="">
+            <form method="dialog">  <!-- action attribute omitted we are handling the submission through js -->
                 <h5>Book details</h5>
                 <div>
-                    <label for="">Title:</label>
-                    <input type="text">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title">
                 </div>
                 <div>
-                    <label for="">Author:</label>
-                    <input type="text">
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="author">
                 </div>
                 <div>
-                    <label for="">No. of pages:</label>
+                    <label for="pages">No. of pages:</label>
+                    <input type="number" name="pages" id="pages">
                 </div>
                 <button>Add to list</button>
             </form>
