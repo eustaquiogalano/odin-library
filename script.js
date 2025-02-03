@@ -15,7 +15,10 @@ function Book(title, author, numberOfPages, isRead) {
 }
 
 function addBookToLibrary(newBook) {
+
+    // push / add the new book to the array
     myLibrary.push(newBook);
+    // log for verification
     console.log( myLibrary );
     
 }
@@ -25,14 +28,18 @@ addBookButton.addEventListener('click', () => {
 });
 
 addToListButton.addEventListener("click", () => {
-    console.log(title.value, author.value, pages.value , "here");
 
-    let bookTitle = title.value;
+    // use the book title as the variable name for the object
+    let bookTitle = title.value;  
     bookTitle = new Book(bookTitle, author.value, pages.value);
     
-    addBookToLibrary(bookTitle);
+    // push / add the new book object to the library
+    addBookToLibrary(bookTitle);  
+
+    // clears the input fields for next entry
     title.value = "";
     author.value = "";
     pages.value = "";
+
 });
 
