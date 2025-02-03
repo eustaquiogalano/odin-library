@@ -4,8 +4,21 @@ const addToListButton = document.querySelector("#add-to-list");
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
+const bookList = document.querySelector("#book-section"); 
 
-const myLibrary = [];  // our main storage for library
+const myLibrary = [
+    {
+        title: "Walter's Life",
+        author: "Walter Simeon",
+        pages: "129",
+    },
+    {
+        title: "The Life of Lions",
+        author: "Kuya Kim",
+        pages: "1578",
+    },
+    
+];  // our main storage for library
 
 function Book(title, author, numberOfPages, isRead) {
     this.title = title;
@@ -29,17 +42,44 @@ function clearInputFields() {
     pages.value = "";
 }
 
+function renderBookList() {
+    let generatedHTML = "";
+    
+    myLibrary.forEach(book => {
+        generatedHTML += 
+            `
+            <div class="book-list-container">
+                <div class="book-container">
+                    <h3>${book.title}</h3>
+                    <p>
+                        ${book.author} 
+                        <br>
+                        ${book.pages} pages
+                    </p>
+                </div>
+                <div class="read-toggle-container">
+                    <div id="toggle">
+                        <input type="checkbox" id="AtomicHabits">
+                        <label for="AtomicHabits" class="js-manipulation"></label>
+                    </div>
+                </div>
+            </div>
+            `;
+    });
+
+    bookList.innerHTML = generatedHTML;
+}
+
 addBookButton.addEventListener('click', () => {
     addBookModal.showModal();
 });
 
 addToListButton.addEventListener("click", () => {
-    
     // push / add the new book object to the library
     addBookToLibrary( new Book(title.value, author.value, pages.value) );  
-
-    // clears the input fields for next entry
-    clearInputFields();    
-
+    clearInputFields();   
+    renderBookList();
 });
 
+// initial render of books in the list
+renderBookList();
