@@ -93,7 +93,7 @@ main {
 
     #add-book-modal {
         position: absolute;
-        top: 33%;
+        top: 20%;
         left: 37%;
 
         height: 500px;
@@ -149,6 +149,11 @@ main {
                 height: 15%;
             }
         }
+    }
+
+    #add-book-modal::backdrop {
+        background-color: rgb(0, 0, 0, 50%);  /* semi-transparent black */
+        backdrop-filter: blur(1px);
     }
 
     #book-section {
