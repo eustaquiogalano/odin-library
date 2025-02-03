@@ -34,13 +34,9 @@ addBookButton.addEventListener('click', () => {
 });
 
 addToListButton.addEventListener("click", () => {
-
-    // use the book title as the variable name for the object
-    let bookTitle = title.value;  
-    bookTitle = new Book(bookTitle, author.value, pages.value);
     
     // push / add the new book object to the library
-    addBookToLibrary(bookTitle);  
+    addBookToLibrary( new Book(title.value, author.value, pages.value) );  
 
     // clears the input fields for next entry
     clearInputFields();    
