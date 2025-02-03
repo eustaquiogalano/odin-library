@@ -105,6 +105,50 @@ main {
         background-color: var(--main-bg-color);
         color: var(--font-color);
         font-family: var(--rubik-regular-setup);
+
+        form {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            h5 {
+                text-align: center;
+                font-size: 2rem;
+                font-family: var(--rubik-black-setup);
+                margin-bottom: 1rem;
+            }
+
+            div {
+                margin-bottom: 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                input {
+                    width: 80%;
+                    padding: .5rem;
+                    font-size: 1rem;
+                    border: none;
+                    border-radius: 6px;
+                }
+            }
+
+            button {
+                font-family: var(--rubik-black-setup);
+                color: var(--font-color);
+                font-size: 1.5rem;
+
+                background-color: var(--green-button);
+                border: none;
+                border-radius: 6px;
+                align-self: center;
+                width: 60%;
+                height: 15%;
+            }
+        }
     }
 
     #book-section {
