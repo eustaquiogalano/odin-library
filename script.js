@@ -23,6 +23,12 @@ function addBookToLibrary(newBook) {
     
 }
 
+function clearInputFields() {
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+}
+
 addBookButton.addEventListener('click', () => {
     addBookModal.showModal();
 });
@@ -37,9 +43,7 @@ addToListButton.addEventListener("click", () => {
     addBookToLibrary(bookTitle);  
 
     // clears the input fields for next entry
-    title.value = "";
-    author.value = "";
-    pages.value = "";
+    clearInputFields();    
 
 });
 
