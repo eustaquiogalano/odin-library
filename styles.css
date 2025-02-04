@@ -180,7 +180,7 @@ main {
 
             display: grid;
             grid-auto-flow: column;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 3fr 2fr 1fr;
 
             .book-container {
                 width: 100%;
@@ -261,6 +261,33 @@ main {
 
 
             }
+
+            .del {
+                /* background-color: green; */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 6px;
+
+                button {
+                    height: 80%;
+                    width: 80%;
+
+                    font-family: var(--rubik-black-setup);
+                    color: var(--font-color);
+                    background-color: var(--green-button);
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    cursor:crosshair;
+                    transition: all .5s;
+                }
+
+                button:hover {
+                    background-color: rgba(255, 46, 46, 0.856);
+                    transform: scale(1.1);
+                }
+            }
         }
     }
 
@@ -289,7 +316,7 @@ main {
                 color: var(--font-color);
                 border-radius: var(--border-radius);
                 font-family: var(--rubik-black-setup);
-                cursor: pointer;
+                cursor: crosshair;
                 transition: transform .5s;
             }
 

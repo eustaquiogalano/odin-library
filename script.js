@@ -71,6 +71,9 @@ function renderBookList() {
                         <label for="${idName}" class="js-manipulation"></label>
                     </div>
                 </div>
+                <div class="delete-${idName} del">
+                    <button>Delete</button>
+                </div>
             </div>
             `;
     });
@@ -91,5 +94,5 @@ addToListButton.addEventListener("click", () => {
     renderBookList();
 });
 
-// initial render of books in the list
+// initial render of books in the array
 renderBookList();
