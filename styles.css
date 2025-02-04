@@ -175,7 +175,7 @@ main {
             background-color: var(--main-bg-color-color);
             border-radius: 6px;
             border: var(--border-setup);
-            height: auto;
+            height: 18%;
             width: 100%;
 
             display: grid;
