@@ -45,9 +45,15 @@ function clearInputFields() {
 function renderBookList() {
     let generatedHTML = "";
     
+    // loop over the array
     myLibrary.forEach(book => {
+
+        // Get the book title and remove whitespaces
+        // to use as id name for each books input and label elements  
         let idName = book.title.split(" ").join("");
         
+        // This will generate a container for each book
+        // including all the elements and attributes needed 
         generatedHTML += 
             `
             <div class="book-list-container">
@@ -69,6 +75,8 @@ function renderBookList() {
             `;
     });
 
+    // The generated containers will be the content 
+    // of the book list section 
     bookList.innerHTML = generatedHTML;
 }
 
