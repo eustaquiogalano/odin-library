@@ -46,6 +46,8 @@ function renderBookList() {
     let generatedHTML = "";
     
     myLibrary.forEach(book => {
+        let idName = book.title.split(" ").join("");
+        
         generatedHTML += 
             `
             <div class="book-list-container">
@@ -59,8 +61,8 @@ function renderBookList() {
                 </div>
                 <div class="read-toggle-container">
                     <div id="toggle">
-                        <input type="checkbox" id="AtomicHabits">
-                        <label for="AtomicHabits" class="js-manipulation"></label>
+                        <input type="checkbox" id="${idName}">
+                        <label for="${idName}" class="js-manipulation"></label>
                     </div>
                 </div>
             </div>
