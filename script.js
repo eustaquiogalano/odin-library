@@ -72,7 +72,7 @@ function renderBookList() {
                     </div>
                 </div>
                 <div class="del">
-                    <button class="delete-button" id="${index}"}">Delete</button>
+                    <button class="delete-button" id="boook${index}">Delete</button>
                 </div>
             </div>
             `;
