@@ -27,10 +27,10 @@ function Book(title, author, numberOfPages, isRead) {
     this.isRead = isRead;
 }
 
-function addBookToLibrary(newBook) {
+function addBookToLibrary(newBookObject) {
 
     // push / add the new book to the array
-    myLibrary.push(newBook);
+    myLibrary.push(newBookObject);
     // log for verification
     console.log( myLibrary );
     
@@ -72,7 +72,7 @@ function renderBookList() {
                     </div>
                 </div>
                 <div class="del">
-                    <button class="delete-button" id="boook${index}">Delete</button>
+                    <button class="delete-button" id="${index}">Delete</button>
                 </div>
             </div>
             `;
@@ -98,8 +98,8 @@ function deleteBook() {
         button.addEventListener("click", (e) => {
 
             // get the ID of the clicked element
-            // convert to number to be able to use as a index number
-            let bookIndex = +e.target.id;
+            // convert to number to be able to use as an index number
+            let bookIndex = +e.target.id;       
 
             // remove the selected element by referencing
             // its index number
