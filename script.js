@@ -7,42 +7,38 @@ const pages = document.querySelector("#pages");
 const bookList = document.querySelector("#book-section");
 
 const myLibrary = [
-    {
-        title: "Walter's Life",
-        author: "Walter Simeon",
-        pages: "129",
-    },
-    {
-        title: "The Life of Lions",
-        author: "Kuya Kim",
-        pages: "1578",
-    },
-    
-];  // our main storage for library
-
+  {
+    title: "Walter's Life",
+    author: "Walter Simeon",
+    pages: "129",
+  },
+  {
+    title: "The Life of Lions",
+    author: "Kuya Kim",
+    pages: "1578",
+  },
+]; // our main storage for library
 
 class Book {
-    constructor(title, author, numberOfPages, isRead) {
-        this.title = title;
-        this.author = author;
-        this.pages = numberOfPages;
-        this.isRead = isRead;
-    }
+  constructor(title, author, numberOfPages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = numberOfPages;
+    this.isRead = isRead;
+  }
 
-    static renderBookList() {
-        let generatedHTML = "";
-        
-        // loop over the array
-        myLibrary.forEach((book, index) => {
-    
-            // Get the book title and remove whitespaces
-            // to use as id name for each books input and label elements  
-            let idName = book.title.split(" ").join("");
-    
-            // This will generate a container for each book
-            // including all the elements and attributes needed 
-            generatedHTML += 
-                `
+  static renderBookList() {
+    let generatedHTML = "";
+
+    // loop over the array
+    myLibrary.forEach((book, index) => {
+      // Get the book title and remove whitespaces
+      // to use as id name for each books input and label elements
+      let idName = book.title.split(" ").join("");
+
+      // This will generate a container for each book
+      // including all the elements and attributes needed
+      generatedHTML += `
                 <div class="book-list-container">
                     <div class="book-container">
                         <h3>${book.title}</h3>
@@ -63,66 +59,81 @@ class Book {
                     </div>
                 </div>
                 `;
-        });
-    
-        // The generated containers will be the content 
-        // of the book list section 
-        bookList.innerHTML = generatedHTML;
-    
-        // this function will put an event listener 
-        // to every delete button of every book container
-        this.deleteBook();
-    }
+    });
 
-    static deleteBook() {
-        // gather all the current delete button 
-        const deleteBookButton = document.querySelectorAll(".delete-button"); 
-    
-        // loop over the node list of delete button
-        deleteBookButton.forEach(button => {
-    
-            // put an event listener to every delete button
-            button.addEventListener("click", (e) => {
-    
-                // get the ID of the clicked element
-                // convert to number to be able to use as an index number
-                let bookIndex = +e.target.id;       
-    
-                // remove the selected element by referencing
-                // its index number
-                myLibrary.splice(bookIndex, 1);
-    
-                // render the array
-                this.renderBookList();
-            });
-        })
-    }
+    // The generated containers will be the content
+    // of the book list section
+    bookList.innerHTML = generatedHTML;
 
-    static addBookToLibrary(newBookObject) {
+    // this function will put an event listener
+    // to every delete button of every book container
+    this.deleteBook();
+  }
 
-        // push / add the new book to the array
-        myLibrary.push(newBookObject);
-        // log for verification
-        console.log( myLibrary );
-        
-    }
+  static deleteBook() {
+    // gather all the current delete button
+    const deleteBookButton = document.querySelectorAll(".delete-button");
+
+    // loop over the node list of delete button
+    deleteBookButton.forEach((button) => {
+      // put an event listener to every delete button
+      button.addEventListener("click", (e) => {
+        // get the ID of the clicked element
+        // convert to number to be able to use as an index number
+        let bookIndex = +e.target.id;
+
+        // remove the selected element by referencing
+        // its index number
+        myLibrary.splice(bookIndex, 1);
+
+        // render the array
+        this.renderBookList();
+      });
+    });
+  }
+
+  static addBookToLibrary(newBookObject) {
+    // push / add the new book to the array
+    myLibrary.push(newBookObject);
+    // log for verification
+    console.log(myLibrary);
+  }
 }
 
 function clearInputFields() {
-    title.value = "";
-    author.value = "";
-    pages.value = "";
+  title.value = "";
+  author.value = "";
+  pages.value = "";
 }
 
-addBookButton.addEventListener('click', () => {
-    addBookModal.showModal();
+function validateInputFields() {
+  if (
+    !(
+      title.validity.valueMissing ||
+      pages.validity.valueMissing ||
+      author.validity.valueMissing
+    )
+  ) {
+    title.setCustomValidity("");
+    pages.setCustomValidity("");
+    author.setCustomValidity("");
+    Book.addBookToLibrary(new Book(title.value, author.value, pages.value));
+    clearInputFields();
+    Book.renderBookList();
+  } else {
+    title.setCustomValidity("Do not leave blank");
+    pages.setCustomValidity("Do not leave blank");
+    author.setCustomValidity("Do not leave blank");
+  }
+}
+
+addBookButton.addEventListener("click", () => {
+  addBookModal.showModal();
 });
 
 addToListButton.addEventListener("click", () => {
-    // push / add the new book object to the library
-    Book.addBookToLibrary( new Book(title.value, author.value, pages.value) );  
-    clearInputFields();   
-    Book.renderBookList();
+  // push / add the new book object to the library
+  validateInputFields();
 });
 
 // initial render of books in the array
