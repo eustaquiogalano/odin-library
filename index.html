@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Q Library</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <section>
-            <h1>q.lib</h1>
-            <p>Everything about books you love.</p>
-        </section>
+      <section>
+        <h1>q.lib</h1>
+        <p>Everything about books you love.</p>
+      </section>
     </header>
     <main>
-        <dialog id="add-book-modal">
-            <form method="dialog">  <!-- action attribute omitted we are handling the submission through js -->
-                <h5>Book details</h5>
-                <div>
-                    <label for="title">Title:</label>
-                    <input type="text" name="title" id="title">
-                </div>
-                <div>
-                    <label for="author">Author:</label>
-                    <input type="text" name="author" id="author">
-                </div>
-                <div>
-                    <label for="pages">No. of pages:</label>
-                    <input type="number" name="pages" id="pages">
-                </div>
-                <button id="add-to-list">Add to list</button>
-            </form>
-        </dialog>
-        <section id="book-section">
-            <!-- contents here will be added through JS -->
-        </section>
-        <section id="button-section">
-            <div id="button-container">
-                <button id="add-book">Add book</button>
-            </div>
-        </section>
+      <dialog id="add-book-modal">
+        <form method="dialog" novalidate>
+          <!-- action attribute omitted we are handling the submission through js -->
+          <h5>Book details</h5>
+          <div>
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required />
+          </div>
+          <div>
+            <label for="author">Author:</label>
+            <input type="text" name="author" id="author" required />
+          </div>
+          <div>
+            <label for="pages">No. of pages:</label>
+            <input type="number" name="pages" id="pages" required />
+          </div>
+          <button id="add-to-list">Add to list</button>
+        </form>
+      </dialog>
+      <section id="book-section">
+        <!-- contents here will be added through JS -->
+      </section>
+      <section id="button-section">
+        <div id="button-container">
+          <button id="add-book">Add book</button>
+        </div>
+      </section>
     </main>
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
