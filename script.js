@@ -5,6 +5,7 @@ const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
 const bookList = document.querySelector("#book-section");
+const inputsToCheckValue = document.querySelectorAll(".check-value");
 
 const myLibrary = [
   {
@@ -106,24 +107,37 @@ function clearInputFields() {
   pages.value = "";
 }
 
-function validateInputFields() {
+function validateInputFields(e) {
+  title.setCustomValidity("");
+  author.setCustomValidity("");
+  pages.setCustomValidity("");
+
+  if (title.validity.valueMissing) {
+    title.setCustomValidity("Hindi maipasok 'pag walang laman");
+    title.reportValidity();
+  }
+
+  if (pages.validity.valueMissing) {
+    pages.setCustomValidity("Hindi maipasok 'pag walang laman");
+    pages.reportValidity();
+  }
+
+  if (author.validity.valueMissing) {
+    author.setCustomValidity("Hindi maipasok 'pag walang laman");
+    author.reportValidity();
+  }
+
   if (
-    !(
-      title.validity.valueMissing ||
-      pages.validity.valueMissing ||
-      author.validity.valueMissing
-    )
+    title.validity.valueMissing ||
+    author.validity.valueMissing ||
+    pages.validity.valueMissing
   ) {
-    title.setCustomValidity("");
-    pages.setCustomValidity("");
-    author.setCustomValidity("");
+    e.preventDefault();
+  } else {
+    // push / add the new book object to the library
     Book.addBookToLibrary(new Book(title.value, author.value, pages.value));
     clearInputFields();
     Book.renderBookList();
-  } else {
-    title.setCustomValidity("Do not leave blank");
-    pages.setCustomValidity("Do not leave blank");
-    author.setCustomValidity("Do not leave blank");
   }
 }
 
@@ -131,9 +145,28 @@ addBookButton.addEventListener("click", () => {
   addBookModal.showModal();
 });
 
-addToListButton.addEventListener("click", () => {
-  // push / add the new book object to the library
-  validateInputFields();
+addToListButton.addEventListener("click", (e) => {
+  // Validate first the input value
+  // before proceeding
+  validateInputFields(e);
+});
+
+inputsToCheckValue.forEach((element) => {
+  // For each input element, attach an input event
+  element.addEventListener("input", () => {
+    // Always reset the custom mesage
+    // every time event triggers
+    element.setCustomValidity("");
+
+    // Check for validity of value missing
+    if (element.validity.valueMissing) {
+      // set this custom message if invalid
+      element.setCustomValidity("Bawal ang walang laman");
+    }
+
+    // report to user the custome message
+    element.reportValidity();
+  });
 });
 
 // initial render of books in the array
